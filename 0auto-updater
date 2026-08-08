@@ -24,6 +24,11 @@
 
 # Note: In order for this to work please install the jq package from SBo
 
+if ! [ -f "$HOME/.config/0scriptsrc" ]; then
+    install -Dm644 /usr/share/0scripts/0scriptsrc "$HOME/.config/0scriptsrc"
+fi
+source "$HOME/.config/0scriptsrc"
+
 echo
 counter=0
 modified=0
