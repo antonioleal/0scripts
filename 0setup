@@ -31,10 +31,10 @@ else
     if [ "$op" = "y" ] || [ "$op" = "Y" ]; then
         install -Dm644 /usr/share/0scripts/0scriptsrc "$HOME/.config/0scriptsrc"
         echo "installed new $HOME/.config/0scriptsrc"
-        echo
     fi
 fi
 source "$HOME/.config/0scriptsrc"
+echo
 
 set -e
 if [ "$(id -u)" == "0" ]; then
@@ -108,14 +108,14 @@ echo
 if [ -d "$HOME/slackware-builds/myslackbuilds" ]; then
     echo "$HOME/slackware-builds/myslackbuilds directory already exists. Skipping git cloning."
 else
-	git clone https://${ghuser}:${ghtoken}@github.com/${ghuser}/myslackbuilds.git   
+	git clone https://${ghuser}:${ghtoken}@github.com/${ghuser}/myslackbuilds.git
 fi
 
 echo
 if [ -d "$HOME/slackware-builds/slackbuilds" ]; then
     echo "$HOME/slackware-builds/slackbuilds directory already exists. Skipping git cloning."
 else
-	git clone https://${ghuser}:${ghtoken}@github.com/${ghuser}/slackbuilds.git   
+	git clone https://${ghuser}:${ghtoken}@github.com/${ghuser}/slackbuilds.git
 fi
 
 # Install the plus42 example
@@ -124,7 +124,7 @@ if ! [ -d "$HOME/slackware-builds/myslackbuilds/academic/plus42" ]; then
     read -p "do you with to install the plus42 calculator example in $HOME/slackware-builds/myslackbuilds/academic/plus42? (y/N) " op
     if [ "$op" = "y" ] || [ "$op" = "Y" ]; then
         mkdir -p "$HOME/slackware-builds/myslackbuilds/academic"
-        tar -xvf example/plus42.tar.gz -C "$HOME/slackware-builds/myslackbuilds/academic/"
+        tar -xvf /usr/share/0scripts/plus42.tar.gz -C "$HOME/slackware-builds/myslackbuilds/academic/"
     fi
 fi
 
