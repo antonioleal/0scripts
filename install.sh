@@ -63,3 +63,6 @@ install -Dm755 updater.template /usr/share/0scripts/updater.template
 install -Dm644 0scriptsrc /usr/share/0scripts/0scriptsrc
 install -Dm644 README.md /usr/share/0scripts/README.md
 
+
+#TO REMOVE IN PRODUCTION:
+cp 0scriptsrc "/home/antonio/.config/"

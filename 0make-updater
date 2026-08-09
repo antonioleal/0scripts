@@ -2,7 +2,7 @@
 
 # Slackware menu for 0scripts
 
-# Copyright 2024-2025 Antonio Leal, Porto Salvo, Oeiras, Portugal
+# Copyright 2024-2026 Antonio Leal, Porto Salvo, Oeiras, Portugal
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -37,7 +37,7 @@ fi
 source $PKGNAME.info
 
 # Instantiate updater
-cp $HOME/slackware-builds/myslackbuilds/0/updater-template/updater.template 0/updater
+cp /usr/share/0scripts/updater.template 0/updater
 
 sed -i -e "s/_program_/${PKGNAME}/g" 0/updater
 REPO=$(echo $DOWNLOAD | awk -F"/" '{print $4}')

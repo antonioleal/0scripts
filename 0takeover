@@ -52,9 +52,9 @@ mkdir -p $CATEGORY
 cd $CATEGORY
 cp -avxu $DIR $HOME/slackware-builds/myslackbuilds/$CATEGORY
 cd $PKGNAME
-sed -i -e "s/MAINTAINER=.*/MAINTAINER=\"${YOURNAME}\"/" $PKGNAME.info
-sed -i -e "s/EMAIL=.*/EMAIL=\"${YOUREMAIL}\"/" $PKGNAME.info
+sed -i -e "s/MAINTAINER=.*/MAINTAINER=\"${MYNAME}\"/" $PKGNAME.info
+sed -i -e "s/EMAIL=.*/EMAIL=\"${MYEMAIL}\"/" $PKGNAME.info
 
 LINE=$(grep -n -i "Copyright" $PKGNAME.SlackBuild | head -1 | cut -d":" -f1)
-sed -i "${LINE}i $YOURCOPYRIGHT" $PKGNAME.SlackBuild
+sed -i "${LINE}i $MYCOPYRIGHT" $PKGNAME.SlackBuild
 echo "Done."

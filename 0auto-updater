@@ -99,7 +99,10 @@ do
             read -n 1 op
             if [ "$op" = "y" ] || [ "$op" = "Y" ] || [ "$op" = "" ]
             then
-                konsole --workdir `dirname ~/slackware-builds/myslackbuilds/$updaterdir`
+                (
+                    cd `dirname ~/slackware-builds/myslackbuilds/$updaterdir`
+                    $TERMINAL $TERMINALOPTS
+                )
             fi
             upgradable=$((upgradable+1))
         fi

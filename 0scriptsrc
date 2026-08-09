@@ -22,12 +22,19 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-YOURNAME="Antonio Leal"
-YOUREMAIL="antonioleal@yahoo.com"
-YOURCOPYRIGHT="# Copyright 2026 Antonio Leal, Porto Salvo, Oeiras, Portugal"
+MYNAME="Antonio Leal"
+MYEMAIL="antonioleal@yahoo.com"
+MYCOPYRIGHT="# Copyright 2026 Antonio Leal, Porto Salvo, Oeiras, Portugal"
 
-MYSLACKBUILDS_REPO="https://github.com/antonioleal/myslackbuilds"
+YOURSLACKBUILDS_REPO="https://github.com/antonioleal/myslackbuilds"
 SLACKBUILDS_REPO="https://github.com/antonioleal/slackbuilds"
 
-EDITOR="geany -i"
+#EDITOR="geany -i"
+EDITOR="gvim"
+ARCHIVER="engrampa"
 
+# When spawning a terminal these options are placed in sequence
+TERMINAL="xterm"
+TERMINALOPTS="-fa 'Monospace' -fg white -bg black -fs 14 -maximized"
+TERMINALHOLD="-hold"
+TERMINALRUN="-e"

@@ -129,7 +129,7 @@ do
                 ;;
             7)
                 echo "close ark to return to main menu..."
-                ark 0/slackbuild/$PKGNAME.tar.gz 2> /dev/null
+                $ARCHIVER 0/slackbuild/$PKGNAME.tar.gz 2> /dev/null
                 ;;
             8)
                 0commit-push
@@ -160,7 +160,7 @@ do
                 exit_flist=$?
                 if ! [[ "$exit_flist" == "$DIALOG_CANCEL" ]]
                 then
-                    kate $CHOICE > /dev/null 2>&1
+                    $EDITOR $CHOICE > /dev/null 2>&1
                 fi
                 ;;
             d)
@@ -191,8 +191,7 @@ do
                         exit_flist=$?
                         if ! [[ "$exit_flist" == "$DIALOG_CANCEL" ]]
                         then
-                            # xterm -fa "Monospace" -fs 14 -hold -e "less ./$CHOICE && bash -c ./$CHOICE"
-                            xterm -fa "Monospace" -fs 14 -hold -e "bash -c ./$CHOICE"
+                            $TERMINAL $TERMINALOPTS $TERMINALHOLD $TERMINALRUN "bash -c ./$CHOICE"
                         fi
                     )
                 else
