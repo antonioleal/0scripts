@@ -4,9 +4,13 @@
 
 ## The Zero Scripts Setup
 
-*This folder contains a simple set of auxiliary scripts, the Zero ("0") Scripts, that simplify the process of collaborating with SlackBuilds.org*
+*This folder contains a simple set of auxiliary scripts that simplify the process of collaborating with SlackBuilds.org*
 
 ---
+
+### First and Foremost
+Before installing please create a GitHub.com account then generate a classic token to access it.
+
 
 ### Setup
 A script called 0setup is provided to install the initial environment and the auxiliary packages described below, but the explanation is necessary for your understanding.
