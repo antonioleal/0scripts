@@ -26,15 +26,22 @@ MYNAME="Antonio Leal"
 MYEMAIL="antonioleal@yahoo.com"
 MYCOPYRIGHT="# Copyright 2026 Antonio Leal, Porto Salvo, Oeiras, Portugal"
 
-YOURSLACKBUILDS_REPO="https://github.com/antonioleal/myslackbuilds"
-SLACKBUILDS_REPO="https://github.com/antonioleal/slackbuilds"
-
 #EDITOR="geany -i"
+#EDITOR="kate"
+#EDITOR="mousepad"
 EDITOR="gvim"
-ARCHIVER="engrampa"
 
-# When spawning a terminal these options are placed in sequence
+#ARCHIVER="ark"
+ARCHIVER="xarchiver"
+
+#TERMINAL="konsole"
+#TERMINALOPTS=""
+#TERMINALHOLD="--hold"
+#TERMINALRUN="-e"
+
 TERMINAL="xterm"
 TERMINALOPTS="-fa 'Monospace' -fg white -bg black -fs 14 -maximized"
 TERMINALHOLD="-hold"
 TERMINALRUN="-e"
+
+

@@ -2,7 +2,7 @@
 
 # Slackware script to setup the 0 scripts environment
 
-# Copyright 2025-2025 Antonio Leal, Porto Salvo, Oeiras, Portugal
+# Copyright 2025-2026 Antonio Leal, Porto Salvo, Oeiras, Portugal
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -32,26 +32,32 @@ if [ "$(id -u)" == "0" ]; then
    echo "This script cannot be run as root" 1>&2
    exit 1
 fi
+
 clear
 echo "Installing the workspace environment in $HOME/slackware-builds"
 echo
-# rm -rf /tmp/SBo
 
-deploy() { # the parameters are:  $1="category" $2="package name" $3="slackbuild extension"
-    mkdir -p /tmp/0
-    cd /tmp/0
-    wget https://slackbuilds.org/slackbuilds/15.0/$1/$2.$3
-    tar xvf $2.$3
-    cd $2
-    source $2.info
-    set +e
-    wget $DOWNLOAD
-    wget $DOWNLOAD_x86_64
-    set -e
-    ./$2.SlackBuild
-    PKG=`ls -1 /tmp/$2*.t?z | sort -r | head -1`
-    upgradepkg --install-new --reinstall $PKG
-}
+deploy()
+    { # the parameters are:  $1="category" $2="package name" $3="slackbuild extension"
+        AUX=$(ls /var/log/packages/ -1 | grep $2)
+        if [ "$AUX" = "" ]; then
+            mkdir -p /tmp/0
+            cd /tmp/0
+            wget https://slackbuilds.org/slackbuilds/15.0/$1/$2.$3
+            tar xvf $2.$3
+            cd $2
+            source $2.info
+            set +e
+            wget $DOWNLOAD
+            wget $DOWNLOAD_x86_64
+            set -e
+            ./$2.SlackBuild
+            PKG=`ls -1 /tmp/$2*.t?z | sort -r | head -1`
+            upgradepkg --install-new --reinstall $PKG
+        else
+            echo "$2 is already installed."
+        fi
+    }
 FUNC=$(declare -f deploy)
 
 su - -c "
@@ -61,21 +67,42 @@ su - -c "
     deploy system sbo-maintainer-tools tar.gz
     deploy system jq tar.gz
     deploy development meld tar.gz
+    deploy desktop xarchiver tar.gz
 "
 
 mkdir -p $HOME/slackware-builds
 cd $HOME/slackware-builds
-git clone https://github.com/antonioleal/myslackbuilds
-git clone https://github.com/antonioleal/slackbuilds
 
-touch $HOME/.bashrc
-if ! grep -qF 'myslackbuilds' ~/.bashrc; then
-    echo 'export PATH=$PATH:$HOME/slackware-builds/myslackbuilds/0' >> ~/.bashrc
+read -p "Please type your github username:" ghuser
+read -p "Please copy-paste you github account token:" ghtoken
+
+AUX=$(curl https://api.github.com/repos/${ghuser}/myslackbuilds | jq '.id')
+if [ "$AUX" = "null" ]; then
+	echo "https://api.github.com/repos/${ghuser}/myslackbuilds does not exist."
+	echo "Make sure a token (classic) is also exists for your http://github.com account."
+	echo "Aborting."
+	exit
 fi
 
-echo
-echo "Make sure 'kde' and 'ark' are available."
-echo "$HOME/slackbuilds-builds/myslackbuilds/0 has beed added to"
-echo "your PATH in .bashrc. Please reopen console."
-echo
+AUX=$(curl https://api.github.com/repos/${ghuser}/slackbuilds | jq '.id')
+if [ "$AUX" = "null" ]; then
+	echo "https://api.github.com/repos/${ghuser}/slackbuilds fork does not exist."
+	echo "Login into you http://github.com account and create a fork of https://github.com/SlackBuildsOrg/slackbuilds"
+	echo "Make sure a token (classic) is also exists for your http://github.com account."
+	echo "Aborting."
+	exit
+fi
+
+if [ -d "$HOME/slackware-builds/myslackbuilds" ]; then
+    echo "$HOME/slackware-builds/myslackbuilds directory already exists. Skipping git cloning."
+else
+	git clone https://${ghuser}:${ghtoken}@github.com/${ghuser}/myslackbuilds.git   
+fi
+
+if [ -d "$HOME/slackware-builds/slackbuilds" ]; then
+    echo "$HOME/slackware-builds/slackbuilds directory already exists. Skipping git cloning."
+else
+	git clone https://${ghuser}:${ghtoken}@github.com/${ghuser}/slackbuilds.git   
+fi
+
 echo "Done."

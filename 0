@@ -57,7 +57,7 @@ OPTIONS+=(1 "Run \"less $PKGNAME.info\"              - list the contents of $PKG
          5 "0update-md5-info                    - recalculates md5 and updates info file"
          "" "-----------------------------------------------------------------------------------------------------------"
          6 "0build                              - builds the package"
-         7 "Open tar.gz ready SlackBuild        - open $PKGNAME.tar.gz with ark"
+         7 "Open tar.gz ready SlackBuild        - open $PKGNAME.tar.gz for inspection"
          "" "-----------------------------------------------------------------------------------------------------------"
          8 "0commit-push                        - local commits changes and pushes to GitHub"
          9 "0pull-request                       - generates a PR on SlackBuilds GitHub site"
@@ -128,7 +128,7 @@ do
                 read -p "Press [ENTER] to continue." op
                 ;;
             7)
-                echo "close ark to return to main menu..."
+                echo "close the archiver window to return to main menu..."
                 $ARCHIVER 0/slackbuild/$PKGNAME.tar.gz 2> /dev/null
                 ;;
             8)
