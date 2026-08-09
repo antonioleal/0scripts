@@ -76,10 +76,9 @@ su - -c "
     deploy desktop xarchiver tar.gz
 "
 
-echo "Installing the workspace environment in $HOME/slackware-builds"
-
 echo
-echo "Cloning your 'myslackbuilds' and 'slackbuilds' fork from github.com:"
+echo "Installing the workspace environment in $HOME/slackware-builds by"
+echo "cloning your 'myslackbuilds' and 'slackbuilds' fork from github.com:"
 mkdir -p $HOME/slackware-builds
 cd $HOME/slackware-builds
 
