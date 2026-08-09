@@ -28,6 +28,8 @@ else
     read -p "Do you with to overwrite $HOME/.config/0scriptsrc with the default? (y/N) " op
     if [ "$op" = "y" ] || [ "$op" = "Y" ]; then
         install -Dm644 /usr/share/0scripts/0scriptsrc "$HOME/.config/0scriptsrc"
+        echo "installed new $HOME/.config/0scriptsrc"
+        echo
     fi
 fi
 source "$HOME/.config/0scriptsrc"
