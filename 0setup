@@ -42,9 +42,6 @@ if [ "$(id -u)" == "0" ]; then
    exit 1
 fi
 
-echo "Installing the workspace environment in $HOME/slackware-builds"
-echo
-
 deploy()
     { # the parameters are:  $1="category" $2="package name" $3="slackbuild extension"
         AUX=$(ls /var/log/packages/ -1 | grep $2)
@@ -68,7 +65,7 @@ deploy()
     }
 FUNC=$(declare -f deploy)
 
-echo "Installing missing dependencies (from SlackBuilds.org):"
+echo "Checking missing dependencies:"
 su - -c "
     rm -rf /tmp/0
     $FUNC
@@ -78,6 +75,8 @@ su - -c "
     deploy development meld tar.gz
     deploy desktop xarchiver tar.gz
 "
+
+echo "Installing the workspace environment in $HOME/slackware-builds"
 
 echo
 echo "Cloning your 'myslackbuilds' and 'slackbuilds' fork from github.com:"
