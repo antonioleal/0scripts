@@ -119,13 +119,11 @@ else
 fi
 
 # Install the plus42 example
-if ! [ -d "$HOME/slackware-builds/myslackbuilds/academic/plus42" ]; then
-    echo
-    read -p "do you with to install the plus42 calculator example in $HOME/slackware-builds/myslackbuilds/academic/plus42? (y/N) " op
-    if [ "$op" = "y" ] || [ "$op" = "Y" ]; then
-        mkdir -p "$HOME/slackware-builds/myslackbuilds/academic"
-        tar -xvf /usr/share/0scripts/plus42.tar.gz -C "$HOME/slackware-builds/myslackbuilds/academic/"
-    fi
+echo
+read -p "do you with to install the plus42 calculator example in $HOME/slackware-builds/myslackbuilds/academic/plus42? (y/N) " op
+if [ "$op" = "y" ] || [ "$op" = "Y" ]; then
+    mkdir -p "$HOME/slackware-builds/myslackbuilds/academic"
+    tar -xvf /usr/share/0scripts/plus42.tar.gz -C "$HOME/slackware-builds/myslackbuilds/academic/"
 fi
 
 echo

@@ -9,13 +9,21 @@
 ---
 
 ### First and Foremost
-Before installing please create a GitHub.com account then generate a classic token to access it.
+Before installing please create a GitHub.com account and do the following three steps:
+1. In your area, create an empty repository called (exactly) 'myslackbuilds'. Check github policy (account key, etc..) so you are able to commit to your own repository.
+
+2. Still in your github account, create a classic Personal Access Token (PAT) by navigating to your **Settings** via the profile menu, then select **«<> Developer settings»** and then **«Personal access tokens»**.  Choose Tokens (classic) and click Generate new token (classic). Assign a descriptive Note, set an Expiration date, and select the required Scopes (permissions) for the token.  Finally, click Generate token and copy the token immediately, as it will not be displayed again. Never share you PAT!!
+
+3. Open your web-browser and go to https://github.com/SlackBuildsOrg/slackbuilds. Clone this repository, so that your copy is called (exactly) 'slackbuilds'. 
+
+### Obtaining the 0scripts
+To download the 0scripts you can 
 
 
 ### Setup
 A script called 0setup is provided to install the initial environment and the auxiliary packages described below, but the explanation is necessary for your understanding.
 
-In order to use this environment the following setup is required:
+0setup will check if dependencies are available and otherwise install:
 
 * the package `sbo-maintainer-tools` available from SlackBuilds.org
 
@@ -25,30 +33,17 @@ In order to use this environment the following setup is required:
 
 * the package `meld` available from SlackBuilds.org
 
-* Other useful package is KDE's `Ark`, specially if you use the **0** menu
+* the package `xarchiver` available from SlackBuilds.org
 
-* You must setup a *wokspace* folder where your slackbuilds will be stored, where a sub-folder called "myslackbuilds" should exist. Inside it, you must follow strictly the organization of categories from SlackBuilds.org.
+Afterwards 0setup will create a *wokspace* folder `$HOME/slackware-builds folder and inside it will clone 'myslackbuilds' and 'slackbuilds', after asking for your github **account name** and **PAT token**. 
+
+Inside "myslackbuilds" you must follow strictly the organization of categories from SlackBuilds.org.
 >For example: The **plus42.SlackBuild** and all associated files, *.info, desc, etc.. are stored at `academic/plus42`, so your folder for this SlackBuild should be:
 > `$HOME/slackware-builds/myslackbuilds/academic/plus42`
 
-* If you placed your *workspace* in a different folder you must make a symlink called "slackware-builds" in your home directory pointing at your *workspace*
+Note: the plus42 SlackBuild is provided as an example you can install with 0setup. Study it.
 
-* The zero scripts location must be placed in your PATH, for example by adding this line to your .bashrc:
-> `export PATH=$PATH:$HOME/slackware-builds/myslackbuilds/0`
-
-* Create a github repository called 'myslackbuilds'. Check github policy (account key, etc..) so you are able to commit to your own repository. Now push all your own scripts to it, including (eventually) also the myslackbuilds/0 directory. Your 'myslackbuilds' should have a similar structure to 'slackbuilds' but naturally with much less SlackBuilds, or none at all if you are just starting.
-
-* Next you must fork https://github.com/SlackBuildsOrg/slackbuilds you can do it directly from github site with the click of a button.
-
-* Now clone your fork of SlackBuilds.org with the commands:
-> `cd ~/slackware-builds`
-
-> `git clone https://github.com/{your account}/slackbuilds`
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-so you end-up with all published slackbuilds in the following structure:
-> `/home/{username}/slackware-builds/slackbuilds/(...)`
-
+Your 'myslackbuilds' should have a similar structure to 'slackbuilds' but naturally with much less SlackBuilds, or none at all if you are just starting.
 
 The complete work environment should look like this:
 
@@ -56,7 +51,6 @@ The complete work environment should look like this:
         
             myslackbuilds/
                 .git
-                 0/                     <- the "0" main scripts live here
                  academic/plus42/       <- your plus42 scripts go here
                  academic/plus42/0/     <- place whatever you want here
                  (...etc...)
@@ -71,7 +65,7 @@ The complete work environment should look like this:
                  (...etc...)
         
              otherbuilds
-                 some_test_or_scripts_from_others/
+                 some_test_or_slackbuild_or_whatever/
                  (...etc...)
     
 

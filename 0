@@ -50,7 +50,8 @@ OPTIONS+=(0 "Run the updater                     - upgrade the SlackBuild packag
          "" "-----------------------------------------------------------------------------------------------------------"
          )
 fi
-OPTIONS+=(1 "Run \"less $PKGNAME.info\"              - list the contents of $PKGNAME.info"
+OPTIONS+=(
+         1 "View the *.info file               - list the contents of $PKGNAME.info"
          2 "0meld                               - check if SlackBuilds.org changed the script"
          3 "0replace-string                     - uses sed in the $PKGNAME folder to replace strings"
          4 "0download-source-tarballs           - get the source code, as per $PKGNAME.info"
