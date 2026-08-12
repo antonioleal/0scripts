@@ -17,10 +17,13 @@ Before installing please create a GitHub.com account and do the following three 
 3. Open your web-browser and go to https://github.com/SlackBuildsOrg/slackbuilds. Clone this repository, so that your copy is called (exactly) 'slackbuilds'. 
 
 ### Obtaining the 0scripts
-To download the 0scripts you can just download from this repo and unzip it.
-Run **install.sh** to copy the scripts to the correct locations;
+To obtain the 0scripts you can just download them from this repo as a zip file. A SlackBuild package will be soon available also on my own 'myslackbuilds', but for now just download the zip archive.
+
+Run **install.sh** to copy the scripts to the correct locations:
+```
 /usr/bin
 /usr/share/0scritps
+```
 
 **uninstall.sh** will remove the 0scripts from your machine. 
 
@@ -40,13 +43,15 @@ A script called 0setup is provided to prepare the initial environment and the au
 
 * the package `xarchiver` available from SlackBuilds.org
 
-Afterwards 0setup will create a *wokspace* folder `$HOME/slackware-builds folder and inside it will clone 'myslackbuilds' and 'slackbuilds', after asking for your github **account name** and **PAT token**. 
+Afterwards 0setup will create a *wokspace* folder '$HOME/slackware-builds' folder and inside it will clone 'myslackbuilds' and 'slackbuilds', after asking for your github **account name** and **PAT token**. 
 
 Inside "myslackbuilds" you must follow strictly the organization of categories from SlackBuilds.org.
 >For example: The **plus42.SlackBuild** and all associated files, *.info, desc, etc.. are stored at `academic/plus42`, so your folder for this SlackBuild should be:
 > `$HOME/slackware-builds/myslackbuilds/academic/plus42`
 
 Note: the plus42 SlackBuild is provided as an example you can install with 0setup. Study it.
+
+0setup will also create a configuration file at "$HOME/.config/0scriptsrc" that you should edit and adapt to your needs.
 
 Your 'myslackbuilds' should have a similar structure to 'slackbuilds' but naturally with much less SlackBuilds, or none at all if you are just starting.
 
@@ -84,13 +89,12 @@ A simple menu describing the complete workflow and helping with the build sequen
 With a few exceptions the zero scripts are meant to be started from the slackbuild directory. Inside the slackbuild directory a folder named "0" also exists where you can store any additional files or notes you need to help you maintain your slackbuild. Have a look at my own setup.
 
 Example:
-> `cd ~/slackware-builds/myslackbuilds/academic/plus42`
-
-> 0tar
-
-> `0pull-request`
-
-will create a branch and issue a PR on `github.com/SlackBuildsOrg/slackbuilds` 
+```
+cd ~/slackware-builds/myslackbuilds/academic/plus42
+0tar
+0pull-request
+```
+will create a branch and issue a PR to github.com/SlackBuildsOrg/slackbuilds 
 
 #### Current scripts
 
