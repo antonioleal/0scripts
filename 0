@@ -29,20 +29,11 @@ source "$HOME/.config/0scriptsrc"
 
 CWD="$(echo `pwd`)"
 PKGNAME=${PWD##*/}
-HEIGHT=26
-WIDTH=120
-CHOICE_HEIGHT=24
-BACKTITLE="Antonio Leal's \"0\" scripts SlackBuild environment at $CWD"
-TITLE="$PKGNAME"
-MENU="Choose one of the following:"
 
 if ! [ -f $PKGNAME.info ]; then
   echo "You must run this script from within a SlackBuild folder."
   exit 0
 fi
-
-DIALOG_CANCEL=1
-DIALOG_ESC=255
 
 OPTIONS=()
 if [ -f 0/updater ]; then
@@ -51,7 +42,7 @@ OPTIONS+=(0 "Run the updater                     - upgrade the SlackBuild packag
          )
 fi
 OPTIONS+=(
-         1 "View the *.info file               - list the contents of $PKGNAME.info"
+         1 "View the *.info file                - list the contents of $PKGNAME.info"
          2 "0meld                               - check if SlackBuilds.org changed the script"
          3 "0replace-string                     - uses sed in the $PKGNAME folder to replace strings"
          4 "0download-source-tarballs           - get the source code, as per $PKGNAME.info"
@@ -73,6 +64,16 @@ OPTIONS+=(
 
 while (true)
 do
+    source $PKGNAME.info
+    HEIGHT=26
+    WIDTH=120
+    CHOICE_HEIGHT=24
+    BACKTITLE="SlackBuild environment at $CWD"
+    TITLE="$PKGNAME ($VERSION)"
+    MENU="Choose one of the following:"
+    DIALOG_CANCEL=1
+    DIALOG_ESC=255
+
     CHOICE=$(dialog --clear \
                     --backtitle "$BACKTITLE" \
                     --title "$TITLE" \
