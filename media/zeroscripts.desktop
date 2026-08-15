@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+ServiceTypes=KonqPopupMenu/Plugin
 MimeType=all/all;
 Actions=0ScriptsAction;
 Icon=zeroscripts
@@ -9,7 +9,7 @@ X-KDE-StartupNotify=false
 X-KDE-Submenu=ZeroScripts
 
 [Desktop Action 0ScriptsAction]
-Name=zeroscripts
+Name=0 Menu
 Icon=zeroscripts
-Exec=konsole -e '/usr/bin/0'
+Exec=konsole --workdir %f -e '/usr/bin/0'
 
