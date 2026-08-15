@@ -59,3 +59,5 @@ rm -rf /usr/bin/0update-md5-info
 rm -rf /usr/bin/0whichpkg
 
 rm -rf /usr/share/0scripts
+rm -rf /usr/share/pixmaps/zeroscripts.png
+rm -rf /usr/share/kservices5/ServiceMenus/zeroscripts.desktop

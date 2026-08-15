@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=all/all
+Actions=MyCustomAction
+
+[Desktop Action MyCustomAction]
+Name=zeroscripts
+Exec=konsole -e '/usr/bin/0'
+Icon=zeroscripts

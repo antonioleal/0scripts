@@ -63,5 +63,9 @@ install -Dm755 updater.template /usr/share/0scripts/updater.template
 install -Dm644 0scriptsrc /usr/share/0scripts/0scriptsrc
 install -Dm644 README.md /usr/share/0scripts/README.md
 install -Dm644 example/plus42.tar.gz /usr/share/0scripts/plus42.tar.gz
-cp -axu media /usr/share/0scripts/
+cp -aux media /usr/share/0scripts/
 
+cp -aux media/zeroscripts.png /usr/share/pixmaps
+if [ -d /usr/share/kservices5/ServiceMenus ]; then
+    cp -aux media/zeroscripts.desktop /usr/share/kservices5/ServiceMenus/
+fi
