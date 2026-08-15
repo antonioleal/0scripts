@@ -9,7 +9,7 @@ X-KDE-StartupNotify=false
 X-KDE-Submenu=ZeroScripts
 
 [Desktop Action 0ScriptsAction]
-Name=0 Menu
+Name=Open Menu here
 Icon=zeroscripts
 Exec=konsole --workdir %f -e '/usr/bin/0'
 
