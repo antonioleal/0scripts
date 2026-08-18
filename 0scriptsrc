@@ -39,7 +39,7 @@ ARCHIVER="xarchiver"
 #TERMINALRUN="-e"
 
 TERMINAL="xterm"
-TERMINALOPTS="-fa 'Monospace' -fg white -bg black -fs 14 -maximized"
+TERMINALOPTS="-fa 'Monospace' -sl 4096 -fg white -bg black -fs 14 -maximized"
 TERMINALHOLD="-hold"
 TERMINALRUN="-e"
 
