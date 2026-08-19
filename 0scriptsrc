@@ -26,9 +26,10 @@ MYNAME="Antonio Leal"
 MYEMAIL="antonioleal@yahoo.com"
 MYCOPYRIGHT="# Copyright 2026 Antonio Leal, Porto Salvo, Oeiras, Portugal"
 
+#EDITOR="geany -i"
 #EDITOR="kate"
 #EDITOR="mousepad"
-EDITOR="gvim"
+EDITOR="gvim -f"
 
 #ARCHIVER="ark"
 ARCHIVER="xarchiver"
