@@ -41,7 +41,9 @@ echo
 MSG="$PKGNAME updated for version $VERSION"
 echo "Commit message: " $MSG
 
-read -p "proceed with no change? (Y/n) " op
+if [ "$FASTTRACK" = "" ]; then
+    read -p "proceed with no change? (Y/n) " op
+fi
 if [ "$op" = "n" ] || [ "$op" = "N" ]
 then
     read -p "Commit message: " MSG

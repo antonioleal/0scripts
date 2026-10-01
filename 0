@@ -58,6 +58,7 @@ OPTIONS+=(
          e "Edit files                          - edit files in the $PKGNAME folder"
          d "Run \"git diff\"                      - Compare local changes"
          s "Run \"git status\"                    - Check which files are new or have changed"
+         f "Fasttrack                           - runs 0build with Y to all questions, 0commit and 0pull-request"
          t "Test                                - list, check and run the shell files in the 0/tests directory"
          q "Quit to DOS :)"
          )
@@ -73,6 +74,7 @@ do
     MENU="Choose one of the following:"
     DIALOG_CANCEL=1
     DIALOG_ESC=255
+    export FASTTRACK="" # Do not build with Fasttrack option
 
     CHOICE=$(dialog --clear \
                     --backtitle "$BACKTITLE" \
@@ -171,6 +173,14 @@ do
                 ;;
             s)
                 git status
+                read -p "Press [ENTER] to continue." op
+                ;;
+            f)
+                export FASTTRACK="YES"
+                source /usr/bin/0build
+                source /usr/bin/0commit-push
+                source /usr/bin/0pull-request
+                export FASTTRACK=""
                 read -p "Press [ENTER] to continue." op
                 ;;
             t)
