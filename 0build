@@ -32,7 +32,6 @@ clear
 PKGNAME=${PWD##*/}
 echo "Building Package $PKGNAME:"
 echo
-echo $FASTTRACK
 echo "--------------------------------------------------------------------------------"
 echo
 if [ "$FASTTRACK" = "" ]; then
