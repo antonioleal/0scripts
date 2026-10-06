@@ -176,17 +176,20 @@ do
                 read -p "Press [ENTER] to continue." op
                 ;;
             f)
-                export FASTTRACK="YES"
-                if [ -f 0/updater ]; then
-                    cd 0
-                    export ARG0=""
-                    source updater
-                    cd $CWD
-                    echo
-                fi
-                source /usr/bin/0build
-                source /usr/bin/0commit-push
-                source /usr/bin/0pull-request
+                (
+                    export FASTTRACK="YES"
+                    if [ -f 0/updater ]; then
+                        cd 0
+                        export ARG0=""
+                        source updater
+                        cd $CWD
+                        echo
+                    fi
+                    source /usr/bin/0build
+                    source /usr/bin/0commit-push
+                    source /usr/bin/0pull-request
+                )
+                0clean-tree
                 export FASTTRACK=""
                 read -p "Press [ENTER] to continue." op
                 ;;
