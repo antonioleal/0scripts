@@ -38,7 +38,7 @@ fi
 OPTIONS=()
 if [ -f 0/updater ]; then
 OPTIONS+=(0 "Run the updater                     - upgrade the SlackBuild package files"
-         "" "-----------------------------------------------------------------------------------------------------------"
+         "" "--------------------------------------------------------------------------------------------------------------"
          )
 fi
 OPTIONS+=(
@@ -47,18 +47,18 @@ OPTIONS+=(
          3 "0replace-string                     - uses sed in the $PKGNAME folder to replace strings"
          4 "0download-source-tarballs           - get the source code, as per $PKGNAME.info"
          5 "0update-md5-info                    - recalculates md5 and updates info file"
-         "" "-----------------------------------------------------------------------------------------------------------"
+         "" "--------------------------------------------------------------------------------------------------------------"
          6 "0build                              - builds the package"
          7 "Open tar.gz ready SlackBuild        - open $PKGNAME.tar.gz for inspection"
-         "" "-----------------------------------------------------------------------------------------------------------"
+         "" "--------------------------------------------------------------------------------------------------------------"
          8 "0commit-push                        - local commits changes and pushes to GitHub"
          9 "0pull-request                       - generates a PR on SlackBuilds GitHub site"
-         "" "-----------------------------------------------------------------------------------------------------------"
+         "" "--------------------------------------------------------------------------------------------------------------"
          c "0clean-tree                         - runs git clean -f on myslackbuilds"
          e "Edit files                          - edit files in the $PKGNAME folder"
          d "Run \"git diff\"                      - Compare local changes"
          s "Run \"git status\"                    - Check which files are new or have changed"
-         f "Fasttrack                           - runs 0build with Y to all questions, 0commit and 0pull-request"
+         f "Fasttrack                           - runs updater, 0build with Y to all questions, 0commit and 0pull-request"
          t "Test                                - list, check and run the shell files in the 0/tests directory"
          q "Quit to DOS :)"
          )
@@ -177,6 +177,13 @@ do
                 ;;
             f)
                 export FASTTRACK="YES"
+                if [ -f 0/updater ]; then
+                    cd 0
+                    export ARG0=""
+                    source updater
+                    cd $CWD
+                    echo
+                fi
                 source /usr/bin/0build
                 source /usr/bin/0commit-push
                 source /usr/bin/0pull-request
