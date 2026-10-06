@@ -191,7 +191,8 @@ do
                 )
                 0clean-tree
                 export FASTTRACK=""
-                read -p "Press [ENTER] to continue." op
+                #read -p "Press [ENTER] to continue." op
+                exit
                 ;;
             t)
                 if [ -d "0/tests" ]; then
