@@ -17,16 +17,13 @@ Before installing please create a GitHub.com account and do the following three 
 3. Open your web-browser and go to https://github.com/SlackBuildsOrg/slackbuilds. Clone this repository, so that your copy is called (exactly) 'slackbuilds'. 
 
 ### Obtaining the 0scripts
-To obtain the 0scripts you can just download them from this repo as a zip file. A SlackBuild package will be soon available also on my own 'myslackbuilds', but for now just download the zip archive.
+To obtain the 0scripts you download a zip file them from this repo.\
+To build and install the scripts as a Slackware package run:
 
-Run **install.sh** to copy the scripts to the correct locations:
-```
-/usr/bin
-/usr/share/0scritps
-```
+        sudo slackbuild/install_0scripts.sh
 
-**uninstall.sh** will remove the 0scripts from your machine. 
 
+This will create a package called **0scripts** and install it.
 
 ### Setup
 A script called 0setup is provided to prepare the initial environment and the auxiliary packages described below, the explanation is necessary for your understanding of how things work.
