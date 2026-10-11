@@ -98,7 +98,7 @@ will create a branch and issue a PR to github.com/SlackBuildsOrg/slackbuilds
 
 #### Current scripts
 
-    Script: 0auto-updater
+    Script: 0auto-crawler
     Effect: Check a multitude of sites to know if new versions are available.
             But you need to provide an updater script. See my examples.
             Notice you are web-crawling so use this with care.

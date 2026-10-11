@@ -34,7 +34,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 cd $SCRIPT_DIR
 
 rm -rf /usr/bin/0
-rm -rf /usr/bin/0auto-updater
+rm -rf /usr/bin/0auto-crawler
 rm -rf /usr/bin/0build
 rm -rf /usr/bin/0build-package
 rm -rf /usr/bin/0clean-tree

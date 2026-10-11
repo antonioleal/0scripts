@@ -34,7 +34,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 cd $SCRIPT_DIR
 
 install -Dm755 0 /usr/bin/0
-install -Dm755 0auto-updater /usr/bin/0auto-updater
+install -Dm755 0auto-crawler /usr/bin/0auto-crawler
 install -Dm755 0build /usr/bin/0build
 install -Dm755 0build-package /usr/bin/0build-package
 install -Dm755 0clean-tree /usr/bin/0clean-tree
