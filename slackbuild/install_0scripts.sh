@@ -10,6 +10,9 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 cd $SCRIPT_DIR/..
 
 rm -rf /tmp/0scripts*
+/sbin/removepkg 0scripts
+
 ./slackbuild/0scripts.SlackBuild
+
 PKG=$(ls -1 /tmp/0scripts* | head)
 /sbin/upgradepkg --install-new $PKG
