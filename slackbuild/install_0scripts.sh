@@ -12,4 +12,4 @@ cd $SCRIPT_DIR/..
 rm -rf /tmp/0scripts*
 ./slackbuild/0scripts.SlackBuild
 PKG=$(ls -1 /tmp/0scripts* | head)
-upgradepkg --install-new $PKG
+/sbin/upgradepkg --install-new $PKG
